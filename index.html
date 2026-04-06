@@ -1,0 +1,11 @@
+function placeBet(betType, amount) {
+    fetch("https://ВАШ_ДОМЕН/bet", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: 12345, bet_type: betType, amount: amount })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(`Выпало число: ${data.result_number}, выигрыш: ${data.win}, баланс: ${data.balance}`);
+    });
+}
